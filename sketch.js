@@ -14,7 +14,7 @@ var mode = true;
 function setup() {
   createCanvas(1200, 600);
 
-  background(0,0,0);
+  background(0, 0, 0);
   stroke(255);
   fill(255)
 
@@ -30,8 +30,8 @@ function draw() {
   button = createButton('Save');
   button2 = createButton('Clear');
   // button.style('background-color', color('white'));
-  button.position(600,500);
-  button2.position(550,500);
+  button.position(600, 500);
+  button2.position(550, 500);
   button2.mousePressed(clearData);
   button.mousePressed(saveDrawing);
 
@@ -83,7 +83,10 @@ function readPosition(data) {
 
 function drawPainting(firebaseDrawing) {
 
-  console.log(firebaseDrawing);
+  // console.log(firebaseDrawing);
+  if (firebaseDrawing == null) {
+    return;
+  }
 
   for (var i = 0; i < firebaseDrawing.length; i++) {
     var cLine = firebaseDrawing[i];
@@ -100,7 +103,7 @@ function drawPainting(firebaseDrawing) {
 
 }
 
-function clearData(){
+function clearData() {
 
   curr_line = [];
 
